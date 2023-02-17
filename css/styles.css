@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --text-color: black;
+    --bg-img: linear-gradient(315deg, #4dff03, #00d0ff);
+    --container-bc: #fdfdfd; 
+    --switch-bg-url: url(../assets/sun.svg);
+    
+    --stroke-color: rgba(0, 0 , 0 , 0.5);
+    --surface-color: rgba(0,0,0, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+}
+
+.ligth {
+    --text-color: #fdfdfd;
+    --bg-img: linear-gradient(315deg, #03a9f4, #ff0058);
+    --container-bc: #222;
+    --switch-bg-url: url(../assets/moon-stars.svg);
+
+    --stroke-color: rgba(255, 255 , 255 , 0.5);
+    --surface-color: rgba(255,255,255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
+}
+
+body {
+    background: var(--bg-img);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1, h3 ,h4, p {
+    color: var(--text-color);
+}
+
+button {
+    background: var(--bg-img);
+    padding: .3rem .6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background: #00d0ff;
+    color: var(--text-color);
+}
+
+button:hover > i {
+    color: var(--text-color);
+}
+
+button i {
+    font-weight: bold;
+    pointer-events: none;
+}
+
+input, select {
+    padding: 0.25rem 0.5rem;
+}
+.hide {
+    display: none;
+}
+
+.container {
+    max-width: 450px;
+    margin: 3rem auto;
+    background-color: var(--container-bc);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.container header {
+    text-align: center;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#forms, #edit-form {
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#forms p, #edit-form {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.form-control {
+    display: flex;
+}
+
+.form-control input {
+    margin-right: 0.5rem;
+}
+
+#cancel-edit-btn {
+    margin-top: 1rem;
+}
+
+
+.todo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    transition: .3s;
+}
+
+.todo h3 {
+    flex: 1;
+    font-size: 0.9rem;
+}
+
+.todo button {
+    margin-left: 0.4rem;
+}
+
+.done {
+    background: var(--bg-img);
+    border: none;
+    border-radius: 10px;
+}
+
+.done h3 {
+    color: var(--text-color);
+    text-decoration: line-through;
+    font-style: italic;
+}
+
+#switch {
+    position: relative;
+    width: 64px;
+
+    margin: 10px auto;
+}
+
+#switch button {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background: #dddddd var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+
+    animation: slide-back 0.s;
+}
+
+.ligth #switch button {
+    animation: slide-in 0.4s forwards;
+}
+
+#switch span {
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(--stroke-color);
+    border: 1px solid var(--surface-color);
+    border-radius: 9999px;
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
